@@ -63,6 +63,9 @@ export default function Swap() {
   }, [])
 
   const { account } = useActiveWeb3React()
+
+
+
   const theme = useContext(ThemeContext)
 
   // toggle wallet when disconnected
@@ -278,7 +281,7 @@ export default function Swap() {
         onConfirm={handleConfirmTokenWarning}
       />
       <AppBody>
-        <SwapPoolTabs active={'swap'} />
+        <SwapPoolTabs active={'Buy'} />
         <Wrapper id="swap-page">
           <ConfirmSwapModal
             isOpen={showConfirm}

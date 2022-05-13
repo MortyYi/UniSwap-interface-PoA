@@ -20,7 +20,10 @@ import PoolFinder from './PoolFinder'
 import RemoveLiquidity from './RemoveLiquidity'
 import { RedirectOldRemoveLiquidityPathStructure } from './RemoveLiquidity/redirects'
 import Swap from './Swap'
-import { RedirectPathToSwapOnly, RedirectToSwap } from './Swap/redirects'
+import Market from './Market'
+import MyNFT from './MyNFT'
+import { RedirectPathToSwapOnly, RedirectToSwap } from './Market/redirects'
+import Mint from './Mint'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -71,6 +74,9 @@ export default function App() {
             <Popups />
             <Web3ReactManager>
               <Switch>
+                <Route exact strict path="/Buy" component={Market} />
+                <Route exact strict path="/My" component={MyNFT} />
+                <Route exact strict path="/Mint" component={Mint} />
                 <Route exact strict path="/swap" component={Swap} />
                 <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />
                 <Route exact strict path="/send" component={RedirectPathToSwapOnly} />

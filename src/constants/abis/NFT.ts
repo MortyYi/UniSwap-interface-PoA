@@ -1,0 +1,8 @@
+import NFT_ABI from './NFT.json'
+
+//const NFT_ADDRESS = '0x56c5A2f2489a8CFF1Db804Bf85ff71A5397a84C4' //正在使用中的
+const NFT_ADDRESS = '0x746d671d7a7605F84302236466870dFAba6e1f3f' //正在使用中的
+
+
+
+export { NFT_ADDRESS, NFT_ABI }

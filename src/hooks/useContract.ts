@@ -13,6 +13,8 @@ import { MULTICALL_ABI, MULTICALL_NETWORKS } from '../constants/multicall'
 import { V1_EXCHANGE_ABI, V1_FACTORY_ABI, V1_FACTORY_ADDRESSES } from '../constants/v1'
 import { getContract } from '../utils'
 import { useActiveWeb3React } from './index'
+import { MARKET_ABI, MARKET_ADDRESS } from '../constants/abis/market'
+import { NFT_ADDRESS, NFT_ABI } from '../constants/abis/NFT'
 
 // returns null on errors
 function useContract(address: string | undefined, ABI: any, withSignerIfPossible = true): Contract | null {
@@ -27,6 +29,14 @@ function useContract(address: string | undefined, ABI: any, withSignerIfPossible
       return null
     }
   }, [address, ABI, library, withSignerIfPossible, account])
+}
+//取NFT市场数据
+export function useMarketContract( withSignerIfPossible?: boolean): Contract | null {
+  return useContract(MARKET_ADDRESS, MARKET_ABI, withSignerIfPossible)
+}
+//取NFT数据
+export function useNFTContract( withSignerIfPossible?: boolean): Contract | null {
+  return useContract(NFT_ADDRESS, NFT_ABI, withSignerIfPossible)
 }
 
 export function useV1FactoryContract(): Contract | null {

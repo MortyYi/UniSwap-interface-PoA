@@ -12,13 +12,35 @@ import { calculateGasMargin } from '../utils'
 import { useTokenContract } from './useContract'
 import { useActiveWeb3React } from './index'
 import { Version } from './useToggledVersion'
-
+import { useMarketOrderData, useMyNFTData } from '../data/tradeOrderData'
 export enum ApprovalState {
   UNKNOWN,
   NOT_APPROVED,
   PENDING,
   APPROVED
 }
+
+export function useGetOrderDataCallBack():any[]|undefined{
+  const order=useMarketOrderData()
+
+  let r:any|undefined
+  if(order){
+    if(order[0].result)
+       r=order[0].result[0]
+  }
+  return r
+}
+
+  export function useAllMyNFTDataCallBack():any[]|undefined{
+    const order=useMyNFTData()
+
+    let r:any|undefined
+    if(order){
+      if(order[0].result)
+         r=order[0].result[0]
+    }
+    return r
+  }
 
 // returns a variable indicating the state of the approval and a function which approves if necessary or early returns
 export function useApproveCallback(
